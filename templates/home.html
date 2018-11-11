@@ -2,6 +2,38 @@
 
 {% block content %}
 
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Crypto News</h1>
+        <p class="lead">Get News about Cyptocurrency and Blockchain</p>
+    </div>
+
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Daily High</th>
+            <th scope="col">Daily Low</th>
+            <th scope="col">Market Cap</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, value in price.DISPLAY.items %}
+
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value.USD.PRICE }}</td>
+            <td>{{ value.USD.HIGHDAY }}</td>
+            <td>{{ value.USD.LOWDAY }}</td>
+            <td>{{ value.USD.MKTCAP }}</td>
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <br/>
     <div class="container">
         <div class="row">
 

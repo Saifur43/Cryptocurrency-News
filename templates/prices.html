@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if cur.Response %}
+
+        <div class="jumbotron">
+            <h1 class="display-4">Sorry, {{ quote }} does dont exists. Try again</h1>
+        </div>
+
+    {% endif %}
+
+    {% for key, value in cur.DISPLAY.items %}
+
+        <div class="jumbotron">
+            <h1 class="display-4">{{ key }}</h1>
+            <p class="lead">Price: {{ value.USD.PRICE }}</p>
+            <p class="lead">Highday: {{ value.USD.HIGHDAY }}</p>
+            <p class="lead">Lowday: {{ value.USD.LOWDAY }}</p>
+            <p class="lead">Market Cap: {{ value.USD.MKTCAP }}</p>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}

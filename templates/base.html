@@ -14,29 +14,36 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Cryto Currency News</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Cryto Currency News</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{% url 'prices' %}">Prices </a>
             </li>
 
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0" method="POST" action={% url 'prices' %}>
+            {% csrf_token %}
+            <input class= "form-control mr-sm-2" type="search" placeholder="Lookup Crypto" name="quote">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Lookup</button>
         </form>
     </div>
 </nav>
 <br/>
-<div class="container">
+<div class="container" style="min-height: 80vh;position: relative;overflow: hidden;">
 
     {% block content %}
     
     {% endblock %}
     
 </div>
+
+<div class = "footer" style = "position: relative; bottom: 0px; width: 100%; text-align: center; background-color: #efefef;  padding: 0.6rem;">
+
+        <p> © Crypto News {% now "Y" %}</p>
+</div>
+
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
